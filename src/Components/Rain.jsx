@@ -3,9 +3,7 @@ import useInterval from '@use-it/interval'
 
 const validChars = `abcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"'#&_(),.;:?!\\|{}<>[]^~`
 
-const mutationChance = 0.015
-
-const streamSize = [50, 100]
+const streamSize = [15, 70]
 
 const getRandomRange = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
@@ -21,34 +19,21 @@ const getRandomStream = () => {
     .map((_) => getRandomChar())
 }
 
-// const getMutatedStream = (stream) => {
-//   const newStream = []
-//   for (let i = 1; i < stream.length; i++) {
-//     if (Math.random() < mutationChance) {
-//       newStream.push(getRandomChar())
-//     } else {
-//       newStream.push(stream[i])
-//     }
-//   }
-//   newStream.push(getRandomChar())
-//   return newStream
-// }
-
 const Rain = (props) => {
   const [stream, setStream] = useState(getRandomStream())
-  const [topMargin, setTopMargin] = useState(stream.length * -25)
+  const [topMargin, setTopMargin] = useState(stream.length * -35)
 
   useInterval(() => {
     if (topMargin > window.innerHeight) {
-      setTopMargin(stream.length * -25)
+      setTopMargin(stream.length * -35)
     } else {
-      setTopMargin(topMargin + 20)
+      setTopMargin(topMargin + 32)
       setStream((stream) => [
         ...stream.slice(1, stream.length),
         getRandomChar(),
       ])
     }
-  }, 50)
+  }, 100)
 
   return (
     <div

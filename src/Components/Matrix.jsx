@@ -1,3 +1,4 @@
+import Introduction from './Introduction'
 import './Matrix.css'
 import Rain from './Rain'
 
@@ -9,6 +10,7 @@ const Matrix = () => {
       {new Array(streamCount).fill().map((_) => (
         <Rain />
       ))}
+      <Introduction />
     </div>
   )
 }
