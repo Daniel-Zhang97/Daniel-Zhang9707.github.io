@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Daniel-Zhang9707.github.io/static/css/main.6523803f.css",
-    "main.js": "/Daniel-Zhang9707.github.io/static/js/main.92970769.js",
-    "static/js/592.6d7de513.chunk.js": "/Daniel-Zhang9707.github.io/static/js/592.6d7de513.chunk.js",
-    "static/media/matrix code nfi.ttf": "/Daniel-Zhang9707.github.io/static/media/matrix code nfi.77b36b5eb15b0d99bd9a.ttf",
-    "index.html": "/Daniel-Zhang9707.github.io/index.html",
-    "main.6523803f.css.map": "/Daniel-Zhang9707.github.io/static/css/main.6523803f.css.map",
-    "main.92970769.js.map": "/Daniel-Zhang9707.github.io/static/js/main.92970769.js.map",
-    "592.6d7de513.chunk.js.map": "/Daniel-Zhang9707.github.io/static/js/592.6d7de513.chunk.js.map"
+    "main.css": "/Portfolio/static/css/main.9de146b8.css",
+    "main.js": "/Portfolio/static/js/main.54c2c784.js",
+    "static/js/592.6d7de513.chunk.js": "/Portfolio/static/js/592.6d7de513.chunk.js",
+    "static/media/matrix code nfi.ttf": "/Portfolio/static/media/matrix code nfi.77b36b5eb15b0d99bd9a.ttf",
+    "index.html": "/Portfolio/index.html",
+    "main.9de146b8.css.map": "/Portfolio/static/css/main.9de146b8.css.map",
+    "main.54c2c784.js.map": "/Portfolio/static/js/main.54c2c784.js.map",
+    "592.6d7de513.chunk.js.map": "/Portfolio/static/js/592.6d7de513.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6523803f.css",
-    "static/js/main.92970769.js"
+    "static/css/main.9de146b8.css",
+    "static/js/main.54c2c784.js"
   ]
 }
