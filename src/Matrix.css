@@ -1,0 +1,18 @@
+#matrixContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+}
+
+#letterRain {
+  color: #008F11;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  white-space: nowrap;
+  user-select: none;
+  text-shadow: 0px 0px 8px rgba(0, 255, 65, 0.8);
+  font-size: 50px;
+}
