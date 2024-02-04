@@ -12,6 +12,7 @@ function Introduction() {
 
   return (
     <div id="Introduction">
+      {/* eslint-disable-next-line */}
       <a>
         {text} <Cursor />
       </a>

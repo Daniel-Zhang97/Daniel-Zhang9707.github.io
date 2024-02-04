@@ -1,4 +1,4 @@
-import Matrix from '../Components/Matrix'
+// import Matrix from '../Components/Matrix'
 
 import Introduction from './Introduction'
 import './Matrix.css'
