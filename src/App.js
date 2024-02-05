@@ -1,8 +1,9 @@
-import './App.css'
-import Matrix from './Components/Matrix'
+// eslint-disable-next-line
+import Matrix from './Components/unused/Matrix'
+import Main from './Components/Main'
 
 function App() {
-  return <Matrix />
+  return <Main />
 }
 
 export default App
