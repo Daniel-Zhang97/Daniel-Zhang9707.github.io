@@ -1,6 +1,6 @@
 // eslint-disable-next-line
-import Matrix from './Components/unused/Matrix'
-import Main from './Components/Main'
+import Matrix from './components/unused/Matrix'
+import Main from './pages/Main.jsx'
 
 function App() {
   return <Main />

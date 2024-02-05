@@ -1,0 +1,26 @@
+body {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;  
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-corner {
+  background: transparent; 
+}
+
+#hero-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  /* overflow: hidden; */
+}
+
+#layer1, #layer2 {
+  /* resize: 'contain'; */
+  width: 100%; 
+  overflow: hidden; 
+}
