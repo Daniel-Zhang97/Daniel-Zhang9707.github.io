@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.aa990042.css",
-    "main.js": "/Portfolio/static/js/main.fa429e4d.js",
+    "main.css": "/Portfolio/static/css/main.137639da.css",
+    "main.js": "/Portfolio/static/js/main.acb66d89.js",
     "static/js/592.6d7de513.chunk.js": "/Portfolio/static/js/592.6d7de513.chunk.js",
+    "static/media/layer4.png": "/Portfolio/static/media/layer4.f3624ead644df86a1183.png",
     "static/media/matrix code nfi.ttf": "/Portfolio/static/media/matrix code nfi.77b36b5eb15b0d99bd9a.ttf",
+    "static/media/layer5.png": "/Portfolio/static/media/layer5.d62264f8ef2b333cc358.png",
+    "static/media/layer1.png": "/Portfolio/static/media/layer1.b499277ed3fdc372e8e4.png",
+    "static/media/layer3.png": "/Portfolio/static/media/layer3.23f1a9909a2fbd482184.png",
     "static/media/DZlogo.png": "/Portfolio/static/media/DZlogo.8091c8bbf8cea7152552.png",
+    "static/media/layer2.png": "/Portfolio/static/media/layer2.05bb5b5fe7b1a2f2fad1.png",
     "index.html": "/Portfolio/index.html",
-    "main.aa990042.css.map": "/Portfolio/static/css/main.aa990042.css.map",
-    "main.fa429e4d.js.map": "/Portfolio/static/js/main.fa429e4d.js.map",
+    "main.137639da.css.map": "/Portfolio/static/css/main.137639da.css.map",
+    "main.acb66d89.js.map": "/Portfolio/static/js/main.acb66d89.js.map",
     "592.6d7de513.chunk.js.map": "/Portfolio/static/js/592.6d7de513.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa990042.css",
-    "static/js/main.fa429e4d.js"
+    "static/css/main.137639da.css",
+    "static/js/main.acb66d89.js"
   ]
 }
