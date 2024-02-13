@@ -1,3 +1,18 @@
+/* global */
+.fs {
+  width: 100%;
+  height: 100%;
+}
+
+.w100 {
+  width: 100vw;
+}
+
+.hide {
+  height: 0 !important;
+}
+
+/* main */
 body {
   overflow: hidden;
 }
@@ -16,21 +31,69 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
-  /* overflow: hidden; */
-}
-
-#layer1, #layer2 {
-  /* resize: 'contain'; */
-  width: 100%; 
-  overflow: hidden; 
-}
-
-#test {
-  z-index: 200;
 
 }
 
 svg {
   width: 100%;
   height: 100%;
+}
+
+
+#navbar {
+  z-index: 20;
+  position: sticky;
+  max-height: 100px;
+  max-width: 2000px;
+  margin: 0 auto;
+
+}
+
+#logo {
+  max-height: 100px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+/* LoadingScreen */
+
+#loading-screen {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #297ea6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+#loading-screen.loading {
+  opacity: 1;
+}
+
+#loading-text {
+  position: absolute;
+  text-align: center;
+  margin-top: 40vh;
+  color: aliceblue;
+  font-size: 70px;
+  animation: bounce 1s infinite alternate; /* Bouncing animation */
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50px);
+  }
+}
+
+.loaded {
+  transform: translateY(-100%); /* Slide-up effect */
 }

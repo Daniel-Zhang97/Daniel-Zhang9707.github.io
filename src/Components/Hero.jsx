@@ -307,7 +307,6 @@ l47 -46 -2 190 -3 189 -210 128 c-115 70 -280 170 -365 221 -85 52 -227 138
               </g>
             </svg>
           </ParallaxLayer>
-
           <ParallaxLayer
             id="layer5"
             offset={0.15}
@@ -364,15 +363,14 @@ l-633 443 -4995 1248 -4995 1248 -100 -50 c-55 -27 -154 -77 -220 -112 -66
               </g>
             </svg>
           </ParallaxLayer>
-
           <ParallaxLayer
             id="layer6"
             offset={0}
             speed={0}
             style={{
-              zIndex: '1',
+              zIndex: '0',
               backgroundColor: '#297ea6',
-              height: '30%',
+              height: '35%',
             }}
           >
             hithere!
