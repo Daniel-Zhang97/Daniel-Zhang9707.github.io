@@ -4,12 +4,48 @@ import layer3 from '../images/layer3.png'
 import layer2 from '../images/layer2.png'
 import layer1 from '../images/layer1.png'
 import layer5 from '../images/layer5.png'
+import downArrow from '../images/down_arrow.svg'
+import { useEffect, useState } from 'react'
 
-const Hero = () => {
+const Hero = ({ loading }) => {
+  const messages = ['Hey!', "I'm Dan", "And I'm all about: "]
+  const iLive = ['Challenges', 'Experiences', 'Growth', 'Life']
+
+  const [messageIndex, setMessageIndex] = useState(0)
+  const [messageVisible, setMessageVisible] = useState(true)
+  const [iLiveIndex, setIliveIndex] = useState(0)
+  const [IliveVisible, setILiveVisible] = useState(false)
+  const [arrowVisible, setArrowVisible] = useState(false)
+
+  useEffect(() => {
+    const messageTimer = setTimeout(() => {
+      if (messageIndex < 2 && !loading) {
+        if (messageIndex < 2 && messageVisible) {
+          setMessageVisible((visible) => !visible)
+        } else {
+          setMessageIndex((prevIndex) => prevIndex + 1)
+          setMessageVisible((visible) => !visible)
+        }
+      } else if (!loading) {
+        setILiveVisible(true)
+        const iLiveTimer = setInterval(() => {
+          setIliveIndex((prevIndex) => (prevIndex < 3 ? prevIndex + 1 : 0))
+        }, 1500)
+
+        return () => clearInterval(iLiveTimer)
+      }
+    }, 2000)
+
+    return () => clearTimeout(messageTimer)
+  }, [messageIndex, loading, messageVisible])
+
+  if (iLiveIndex === 3 && !arrowVisible) {
+    setArrowVisible(true)
+  }
+
   return (
     <div>
       <div id="hero-container">
-        {/* <Layers /> */}
         <Parallax
           pages={2}
           style={{ bottom: '0', backgroundColor: 'rgb(0, 24, 41)' }}
@@ -38,7 +74,18 @@ const Hero = () => {
               backgroundImage: `url(${layer2})`,
               backgroundSize: 'contain',
             }}
-          ></ParallaxLayer>
+          >
+            <div id="arrows-container">
+              <img
+                src={downArrow}
+                id="down-arrow"
+                alt="Scroll Down"
+                className={`hidden-up ${
+                  arrowVisible ? 'visible-greeting' : ''
+                }`}
+              ></img>
+            </div>
+          </ParallaxLayer>
 
           <ParallaxLayer
             id="layer3"
@@ -52,7 +99,22 @@ const Hero = () => {
             }}
           >
             <div id="greeting-container" className="">
-              WHATS UPPPPP
+              <p
+                className={`hidden-up ${
+                  messageVisible ? 'visible-greeting' : ''
+                }`}
+              >
+                {messages[messageIndex]}
+              </p>
+
+              <p
+                id="i-live-div"
+                className={`hidden-up ${
+                  IliveVisible ? 'visible-greeting' : ''
+                }`}
+              >
+                {iLive[iLiveIndex]}
+              </p>
             </div>
           </ParallaxLayer>
 

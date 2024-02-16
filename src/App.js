@@ -1,13 +1,27 @@
 // eslint-disable-next-line
 import Matrix from './components/unused/Matrix'
-import Main from './pages/Main.jsx'
 import LoadingScreen from './components/LoadingScreen.jsx'
+import { useState, useEffect } from 'react'
+import Navbar from './components/Navbar.jsx'
+import Hero from './components/Hero.jsx'
+import './pages/Main.css'
 
 function App() {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div>
-      <Main />
-      <LoadingScreen />
+      <Navbar />
+      <Hero loading={loading} />
+      {/* <LoadingScreen loading={loading} /> */}
     </div>
   )
 }

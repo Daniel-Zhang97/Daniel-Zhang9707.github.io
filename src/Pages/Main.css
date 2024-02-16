@@ -12,6 +12,18 @@
   height: 0 !important;
 }
 
+.hidden-up {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(50px);
+}
+
+.visible-greeting {
+  transform: translateY(0px);
+  opacity: 1 !important;
+  transition: all 0.5s ease-in-out;
+}
+
 /* main */
 body {
   overflow: hidden;
@@ -36,17 +48,29 @@ body {
 
 }
 
-#layer3 {
+#layer3, #layer2 {
   display: flex;
 }
 
-#greeting-container {
+#greeting-container, #arrows-container {
 text-align: center;
-margin: auto;
+margin: 37vh auto;
 font-size: 65px;
 color: white;
+display: flex;
+flex-direction: column;
 }
 
+#greeting-container > p {
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#down-arrow {
+width: 40px;
+margin-top: 1em;
+animation: bounce 1s infinite alternate;
+}
 
 /* navbar */
 
