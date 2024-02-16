@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.1116a0d7.css",
-    "main.js": "/Portfolio/static/js/main.1dd81de8.js",
+    "main.css": "/Portfolio/static/css/main.b9505e5a.css",
+    "main.js": "/Portfolio/static/js/main.997e19c9.js",
     "static/js/592.6d7de513.chunk.js": "/Portfolio/static/js/592.6d7de513.chunk.js",
     "static/media/layer4.png": "/Portfolio/static/media/layer4.f3624ead644df86a1183.png",
     "static/media/matrix code nfi.ttf": "/Portfolio/static/media/matrix code nfi.77b36b5eb15b0d99bd9a.ttf",
-    "static/media/layer5.png": "/Portfolio/static/media/layer5.d62264f8ef2b333cc358.png",
-    "static/media/layer1.png": "/Portfolio/static/media/layer1.b499277ed3fdc372e8e4.png",
+    "static/media/layer1.png": "/Portfolio/static/media/layer1.aae994d80d8cd667eb37.png",
+    "static/media/layer5.png": "/Portfolio/static/media/layer5.917c082e16a8552adfe7.png",
     "static/media/layer3.png": "/Portfolio/static/media/layer3.23f1a9909a2fbd482184.png",
     "static/media/DZlogo.png": "/Portfolio/static/media/DZlogo.8091c8bbf8cea7152552.png",
     "static/media/layer2.png": "/Portfolio/static/media/layer2.05bb5b5fe7b1a2f2fad1.png",
     "index.html": "/Portfolio/index.html",
     "static/media/down_arrow.svg": "/Portfolio/static/media/down_arrow.d1ae2bf6279916395fb119022ab31e2b.svg",
-    "main.1116a0d7.css.map": "/Portfolio/static/css/main.1116a0d7.css.map",
-    "main.1dd81de8.js.map": "/Portfolio/static/js/main.1dd81de8.js.map",
+    "main.b9505e5a.css.map": "/Portfolio/static/css/main.b9505e5a.css.map",
+    "main.997e19c9.js.map": "/Portfolio/static/js/main.997e19c9.js.map",
     "592.6d7de513.chunk.js.map": "/Portfolio/static/js/592.6d7de513.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1116a0d7.css",
-    "static/js/main.1dd81de8.js"
+    "static/css/main.b9505e5a.css",
+    "static/js/main.997e19c9.js"
   ]
 }
