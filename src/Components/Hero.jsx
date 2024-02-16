@@ -6,6 +6,10 @@ import layer1 from '../images/layer1.png'
 import layer5 from '../images/layer5.png'
 import downArrow from '../images/down_arrow.svg'
 import { useEffect, useState } from 'react'
+import { RiJavascriptFill } from 'react-icons/ri'
+import { FaReact, FaDocker, FaPhp, FaSymfony } from 'react-icons/fa'
+import { SiMysql, SiMongodb } from 'react-icons/si'
+import { DiNodejs } from 'react-icons/di'
 
 const Hero = ({ loading }) => {
   const messages = ['Hey!', "I'm Dan", "And I'm all about: "]
@@ -67,7 +71,7 @@ const Hero = ({ loading }) => {
           <ParallaxLayer
             id="layer2"
             offset={0.25}
-            speed={0.7}
+            speed={0.65}
             style={{
               zIndex: '5',
               backgroundPosition: 'bottom',
@@ -90,7 +94,7 @@ const Hero = ({ loading }) => {
           <ParallaxLayer
             id="layer3"
             offset={0.05}
-            speed={0.5}
+            speed={0.4}
             style={{
               zIndex: '4',
               backgroundPosition: 'bottom',
@@ -121,7 +125,7 @@ const Hero = ({ loading }) => {
           <ParallaxLayer
             id="layer4"
             offset={0.02}
-            speed={0.35}
+            speed={0.2}
             style={{
               zIndex: '3',
               backgroundPosition: 'bottom',
@@ -132,8 +136,8 @@ const Hero = ({ loading }) => {
 
           <ParallaxLayer
             id="layer5"
-            offset={0.01}
-            speed={0.17}
+            offset={-0.2}
+            speed={0.0}
             style={{
               zIndex: '2',
               backgroundPosition: 'bottom',
@@ -151,8 +155,36 @@ const Hero = ({ loading }) => {
               backgroundColor: '#297ea6',
               height: '35%',
             }}
-          >
-            hithere!
+          ></ParallaxLayer>
+
+          <ParallaxLayer id="skills-layer" offset={1} speed={0}>
+            <div id="skills-title">SKILLS & STACK</div>
+            <div id="icons-container">
+              <RiJavascriptFill id="js-icon" />
+              <FaReact id="react-icon" />
+              <FaPhp id="php-icon" />
+              <FaDocker id="docker-icon" />
+              <SiMysql id="sql-icon" />
+              <FaSymfony id="symfony-icon" />
+              <DiNodejs id="nodejs-icon" />
+              <SiMongodb id="mongodb-icon" />
+            </div>
+            <div id="skills-container">
+              <div></div>
+              <div></div>
+              <div>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/TjH1Y-OLKrs?si=yr8ZPG8OaXsjnu-x"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div></div>
+            </div>
           </ParallaxLayer>
         </Parallax>
       </div>

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import './pages/Main.css'
+import Skills from './components/Skills.jsx'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -22,6 +23,7 @@ function App() {
       <Navbar />
       <Hero loading={loading} />
       {/* <LoadingScreen loading={loading} /> */}
+      {/* <Skills /> */}
     </div>
   )
 }
