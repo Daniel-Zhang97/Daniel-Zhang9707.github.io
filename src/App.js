@@ -3,9 +3,10 @@ import Matrix from './components/unused/Matrix'
 import LoadingScreen from './components/LoadingScreen.jsx'
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import './pages/Main.css'
-import Skills from './components/Skills.jsx'
+// import Hero from './components/Hero.jsx'
+// import './pages/Main.css'
+import HeroFramer from './components/HeroFramer.jsx'
+import './pages/main2.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -21,9 +22,9 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Hero loading={loading} />
+      {/* <Hero loading={loading} /> */}
+      <HeroFramer loading={loading} />
       {/* <LoadingScreen loading={loading} /> */}
-      {/* <Skills /> */}
     </div>
   )
 }

@@ -1,0 +1,295 @@
+/* global */
+.fs {
+  width: 100vw;
+  height: 100vh;
+}
+
+.w100 {
+  width: 100vw;
+}
+
+.hide {
+  visibility: hidden;
+  z-index: -1;
+  position: absolute;
+}
+
+.hidden-up {
+  /* opacity: 0; */
+  transition: all 0.5s ease-in-out;
+  transform: translateY(50px);
+}
+
+.visible-greeting {
+  transform: translateY(0px);
+  opacity: 1 !important;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50px);
+  }
+}
+
+/* scroll snap */
+#parallax-container {
+  scroll-snap-type: y proximity;
+}
+
+section {
+  scroll-snap-align: start !important;
+  height: 100vh;
+}
+
+
+/* main */
+/* body {
+  overflow: hidden;
+} */
+
+::-webkit-scrollbar {
+  width: 0;  
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-corner {
+  background: transparent; 
+}
+
+/* hero */
+
+#hero-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+#layer3, #layer2 {
+  display: flex;
+}
+
+#greeting-container, #arrows-container {
+text-align: center;
+margin: 37vh auto;
+font-size: 65px;
+color: white;
+display: flex;
+flex-direction: column;
+}
+
+#greeting-container > p {
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#down-arrow {
+width: 40px;
+margin-top: 1em;
+animation: bounce 1s infinite alternate;
+
+}
+
+#down-arrow:hover {
+  cursor: pointer;
+}
+
+/* FramerHero */
+
+#parallax-page-1 {
+  overflow: hidden;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #297ea6;
+}
+
+
+.parallax-layer {
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+
+/* navbar */
+
+#navbar {
+  z-index: 20;
+  position: sticky;
+  max-height: 100px;
+  max-width: 2000px;
+  margin: 0 auto;
+
+}
+
+#logo {
+  max-height: 100px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+/* LoadingScreen */
+
+#loading-screen {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #297ea6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+#loading-screen.loading {
+  opacity: 1;
+}
+
+#loading-text {
+  position: absolute;
+  text-align: center;
+  margin-top: 40vh;
+  color: aliceblue;
+  font-size: 70px;
+  animation: bounce 1s infinite alternate;
+}
+
+.loaded {
+  transform: translateY(-100%); 
+}
+
+
+/* Skills */
+
+#skills-layer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+}
+
+#skills-layer div {
+  margin: 2em 0;
+}
+
+#skills-title{
+  width: 800px;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
+#icons-container {
+  border: 4px solid #297ea6;
+  width: 70vw;
+  max-width: 1800px;
+  margin: 0 auto;
+  height: 80px;
+  border-radius: 40px;
+  background-color: #332a5a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#icons-container > * {
+  font-size: 60px;
+  margin: auto 0;
+  color: white;
+}
+
+#js-icon {
+  color: #f7e018;
+}
+
+#php-icon {
+  color: #8892bf;
+}
+
+#docker-icon {
+  color: #1f97ee;
+}
+
+#react-icon {
+  color: #61dbfb;
+}
+
+#sql-icon {
+  color: 
+  #668da6;
+}
+
+#symfony-icon {
+  color: 
+  #444444;
+}
+
+#nodejs-icon {
+  color: 
+  #a1c49f;
+}
+
+#mongodb-icon {
+  color: #13aa52;
+}
+
+#skills-container {
+  width: 70vw;
+  max-width: 1800px;
+  margin: 0 auto;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#description-youtube-container {
+  border: 4px solid #297ea6;
+  width: 60vw;
+  max-width: 1800px;
+  margin: 0 auto;
+  height: 400px;
+  border-radius: 40px;
+  background-color: #332a5a;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#description-box, #youtube-box {
+  width: 48%;
+  height: 100%;
+  margin: 0 !important;
+}
+
+#button-left, #button-right {
+  width: 5vw;
+  display: flex;
+  a { font-size: 50px; margin: auto; color: #332a5a; 
+    transition: all 0.3s ease-in-out;
+  :hover {
+    cursor: pointer;
+    color: #297ea6;
+    transition: all 0.3s ease-in-out;
+  }
+  :active {
+    cursor: pointer;
+    color: #332a5a !important;
+    transition: all 0s ease-in-out;
+  }}
+}
+
