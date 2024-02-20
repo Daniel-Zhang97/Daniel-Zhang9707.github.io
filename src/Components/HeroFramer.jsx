@@ -1,10 +1,4 @@
-import {
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-  useAnimation,
-} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import layer4 from '../images/layer4.png'
 import layer3 from '../images/layer3.png'
 import layer2 from '../images/layer2.png'
@@ -18,12 +12,14 @@ import { FaReact, FaDocker, FaPhp, FaSymfony } from 'react-icons/fa'
 import { SiMysql, SiMongodb } from 'react-icons/si'
 import { DiNodejs } from 'react-icons/di'
 import { FaRegCircleLeft, FaRegCircleRight } from 'react-icons/fa6'
+import AnimatedInView from './AnimatedInView'
 
 const HeroFramer = ({ loading }) => {
   const messages = ['Hey!', "I'm Dan", "And I'm all about: "]
   const iLive = ['Challenges', 'Experiences', 'Growth', 'Life']
   const description = [
     'This was my final project for my level 5 certification, a redesign of the Metro website.\n The task was simple.',
+    'Selma Widget',
   ]
 
   const projectCount = 3
@@ -33,15 +29,33 @@ const HeroFramer = ({ loading }) => {
   const [iLiveIndex, setIliveIndex] = useState(0)
   const [IliveVisible, setILiveVisible] = useState(false)
   const [arrowVisible, setArrowVisible] = useState(false)
-  const [sampleIndex, setSampleIndex] = useState(2)
+  const [sampleIndex, setSampleIndex] = useState(1)
+  const [projectButtonClicked, setProjectButtonClicked] = useState(false)
 
   const changeProject = (sign) => {
     if (sampleIndex <= 1 && sign !== '+') {
-      setSampleIndex((index) => (index = projectCount))
+      setSampleIndex(projectCount)
+      setProjectButtonClicked(true)
     } else if (sampleIndex >= projectCount && sign === '+') {
-      setSampleIndex((index) => (index = 1))
+      setSampleIndex(1)
+      setProjectButtonClicked(true)
     } else {
-      setSampleIndex((index) => (sign === '+' ? index + 1 : index - 1))
+      setSampleIndex(sign === '+' ? sampleIndex + 1 : sampleIndex - 1)
+      setProjectButtonClicked(true)
+    }
+
+    setTimeout(() => {
+      setProjectButtonClicked(false)
+    }, 200)
+  }
+
+  const changePage = (targetSelector) => {
+    const targetElement = document.querySelector(targetSelector)
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth',
+      })
     }
   }
 
@@ -81,46 +95,10 @@ const HeroFramer = ({ loading }) => {
   const translateY4 = useTransform(scrollYProgress, [0, 1], [0, -300])
   const translateY5 = useTransform(scrollYProgress, [0, 1], [0, -100])
 
-  const titleRef = useRef(null)
-  const iconsRef = useRef(null)
-  const containerRef = useRef(null)
-
-  const titleInView = useInView(titleRef)
-  const iconsInView = useInView(iconsRef)
-  const containerInView = useInView(containerRef)
-
-  const titleControls = useAnimation()
-  const iconsControls = useAnimation()
-  const containerControls = useAnimation()
-
-  useEffect(() => {
-    if (titleInView) {
-      titleControls.start('visible')
-    } else {
-      titleControls.start('hidden')
-    }
-  }, [titleInView])
-
-  useEffect(() => {
-    if (iconsInView) {
-      iconsControls.start('visible')
-    } else {
-      iconsControls.start('hidden')
-    }
-  }, [iconsInView])
-
-  useEffect(() => {
-    if (containerInView) {
-      containerControls.start('visible')
-    } else {
-      containerControls.start('hidden')
-    }
-  }, [containerInView])
-
   return (
     <div>
       <div id="hero-container">
-        <section>
+        <section id="page-1">
           <div id="parallax-page-1" className="fs">
             <div id="greeting-container" className="">
               <p
@@ -160,7 +138,7 @@ const HeroFramer = ({ loading }) => {
                 top: '35vh',
               }}
             >
-              <div id="arrows-container" className="">
+              <div id="arrows-container" onClick={() => changePage('#page-2')}>
                 <img
                   src={downArrow}
                   id="down-arrow"
@@ -213,101 +191,129 @@ const HeroFramer = ({ loading }) => {
             ></motion.div>
           </div>
         </section>
+
         <div id="spacer"></div>
-        <section>
-          <div id="parallax-page-2" className="fs">
-            <motion.div
-              ref={titleRef}
-              id="skills-title"
-              variants={{
-                hidden: { opacity: 0, y: 75 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              initial="hidden"
-              animate={titleControls}
-            >
-              SKILLS & STACK
-            </motion.div>
-            <motion.div
-              ref={iconsRef}
-              id="icons-container"
-              variants={{
-                hidden: { opacity: 0, y: 75 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              initial="hidden"
-              animate={iconsControls}
-            >
-              <RiJavascriptFill id="js-icon" />
-              <FaReact id="react-icon" />
-              <FaPhp id="php-icon" />
-              <FaDocker id="docker-icon" />
-              <SiMysql id="sql-icon" />
-              <FaSymfony id="symfony-icon" />
-              <DiNodejs id="nodejs-icon" />
-              <SiMongodb id="mongodb-icon" />
-            </motion.div>
-            <motion.div
-              ref={containerRef}
-              id="skills-container"
-              variants={{
-                hidden: { opacity: 0, y: 75 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              initial="hidden"
-              animate={containerControls}
-            >
+
+        <section className="background-db" id="page-2">
+          <div id="parallax-page-2" className="fs df-center">
+            <AnimatedInView>
+              <div id="skills-title" className="df-center">
+                SKILLS & STACK
+              </div>
+            </AnimatedInView>
+            <AnimatedInView>
+              <div id="icons-container">
+                <RiJavascriptFill
+                  id="js-icon"
+                  className={`${
+                    sampleIndex === 1 || sampleIndex === 3
+                      ? 'color-highlight'
+                      : ''
+                  }`}
+                />
+                <FaReact
+                  id="react-icon"
+                  className={`${
+                    sampleIndex === 1 || sampleIndex === 3
+                      ? 'color-highlight'
+                      : ''
+                  }`}
+                />
+                <FaPhp
+                  id="php-icon"
+                  className={`${sampleIndex === 2 ? 'color-highlight' : ''}`}
+                />
+                <FaDocker
+                  id="docker-icon"
+                  className={`${
+                    sampleIndex === 1 || sampleIndex === 3
+                      ? 'color-highlight'
+                      : ''
+                  }`}
+                />
+                <SiMysql
+                  id="sql-icon"
+                  className={`${sampleIndex === 2 ? 'color-highlight' : ''}`}
+                />
+                <FaSymfony
+                  id="symfony-icon"
+                  className={`${sampleIndex === 2 ? 'color-highlight' : ''}`}
+                />
+                <DiNodejs
+                  id="nodejs-icon"
+                  className={`${sampleIndex === 1 ? 'color-highlight' : ''}`}
+                />
+                <SiMongodb
+                  id="mongodb-icon"
+                  className={`${sampleIndex === 1 ? 'color-highlight' : ''}`}
+                />
+              </div>
+            </AnimatedInView>
+
+            <div id="skills-container">
               <div id="button-left">
                 <a onClick={() => changeProject('-')}>
                   <FaRegCircleLeft />
                 </a>
               </div>
-              <div id="description-youtube-container">
-                <div id="description-box">
-                  <div>{description}</div>
-                  <div></div>
+              <AnimatedInView>
+                <div id="description-youtube-container">
+                  <div
+                    className={`project-slider ${
+                      projectButtonClicked ? 'project-next' : ''
+                    }`}
+                  >
+                    {' '}
+                  </div>
+                  <div id="description-box">
+                    <div>{description[sampleIndex - 1]}</div>
+                    <div></div>
+                  </div>
+                  <div
+                    id="youtube-box"
+                    className={`${sampleIndex === 1 ? '' : 'hide'}`}
+                  >
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/TjH1Y-OLKrs?si=yr8ZPG8OaXsjnu-x"
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div
+                    id="youtube-box"
+                    className={`${sampleIndex === 2 ? '' : 'hide'}`}
+                  >
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/BwaLCo_DX9U?si=9WeprpwK9CRsAdV7"
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div
+                    id="youtube-box"
+                    className={`${sampleIndex === 3 ? '' : 'hide'}`}
+                  ></div>
                 </div>
-                <div
-                  id="youtube-box"
-                  className={`${sampleIndex === 1 ? '' : 'hide'}`}
-                >
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/TjH1Y-OLKrs?si=yr8ZPG8OaXsjnu-x"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div
-                  id="youtube-box"
-                  className={`${sampleIndex === 2 ? '' : 'hide'}`}
-                >
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/BwaLCo_DX9U?si=9WeprpwK9CRsAdV7"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div
-                  id="youtube-box"
-                  className={`${sampleIndex === 3 ? '' : 'hide'}`}
-                ></div>
-              </div>
+              </AnimatedInView>
               <div id="button-right">
                 <a onClick={() => changeProject('+')}>
                   <FaRegCircleRight />
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
+        </section>
+
+        <section>
+          <AnimatedInView>
+            <div id="testing">testingggggg</div>
+          </AnimatedInView>
         </section>
       </div>
     </div>
