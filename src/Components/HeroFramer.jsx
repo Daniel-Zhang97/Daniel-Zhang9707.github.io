@@ -13,19 +13,37 @@ import { SiMysql, SiMongodb } from 'react-icons/si'
 import { DiNodejs } from 'react-icons/di'
 import { FaRegCircleLeft, FaRegCircleRight } from 'react-icons/fa6'
 import AnimatedInView from './AnimatedInView'
+import AnimatedInViewLeft from './AnimatedInViewLeft'
+import AnimatedInViewUp from './AnimatedInViewUp'
+import AnimatedInViewRight from './AnimatedInViewRight'
 
 const HeroFramer = ({ loading }) => {
-  const messages = ['Hey!', "I'm Dan", "And I'm all about: "]
+  const messages = ['Hey!', "I'm Dan"]
   const iLive = ['Challenges', 'Experiences', 'Growth', 'Life']
   const description = [
-    'This was my final project for my level 5 certification, a redesign of the Metro website.\n The task was simple.',
-    'Selma Widget',
+    `<div class='description-title'>Metro Re-imagined</div>
+    This was my final project for my level 5 certification, a revamp of the Metro website. \n
+    I worked together with the UX team who provided the design and overall desired feeling for the website. \n
+    I added my own touches with some details like spacing and animations. It is after all, the little touches that make a <del>house</del> page feel like a home.`,
+
+    `<div class='description-title'>Selma Revenue Widget</div> 
+      As part of my internship at Selma, I was tasked with creating a revenue widget for their platform. \n
+      I had no previous experience with PHP nor Symfony/Composer and was only given the instruction of 'Make a revenue widget'. \n
+      So, with full creative freedom and a new language to learn, of course, I loved the challenge. \n
+      (integrated with a MySQL relational DB backend)`,
+  ]
+
+  const links = ['https://github.com/Daniel-Zhang97/M5MD']
+  const youtubeLinks = [
+    'https://www.youtube.com/embed/TjH1Y-OLKrs?si=yr8ZPG8OaXsjnu-x',
+    'https://www.youtube.com/embed/BwaLCo_DX9U?si=9WeprpwK9CRsAdV7',
   ]
 
   const projectCount = 3
 
   const [messageIndex, setMessageIndex] = useState(0)
   const [messageVisible, setMessageVisible] = useState(true)
+  const [allAboutVisible, setAllAboutVisible] = useState(false)
   const [iLiveIndex, setIliveIndex] = useState(0)
   const [IliveVisible, setILiveVisible] = useState(false)
   const [arrowVisible, setArrowVisible] = useState(false)
@@ -33,16 +51,21 @@ const HeroFramer = ({ loading }) => {
   const [projectButtonClicked, setProjectButtonClicked] = useState(false)
 
   const changeProject = (sign) => {
+    let newIndex = 0
     if (sampleIndex <= 1 && sign !== '+') {
-      setSampleIndex(projectCount)
-      setProjectButtonClicked(true)
+      newIndex = projectCount
     } else if (sampleIndex >= projectCount && sign === '+') {
-      setSampleIndex(1)
-      setProjectButtonClicked(true)
+      newIndex = 1
     } else {
-      setSampleIndex(sign === '+' ? sampleIndex + 1 : sampleIndex - 1)
-      setProjectButtonClicked(true)
+      newIndex = sign === '+' ? sampleIndex + 1 : sampleIndex - 1
     }
+
+    setSampleIndex(-1)
+    setProjectButtonClicked(true)
+
+    setTimeout(() => {
+      setSampleIndex(newIndex)
+    }, 50)
 
     setTimeout(() => {
       setProjectButtonClicked(false)
@@ -61,9 +84,11 @@ const HeroFramer = ({ loading }) => {
 
   useEffect(() => {
     const messageTimer = setTimeout(() => {
-      if (messageIndex < 2 && !loading) {
-        if (messageIndex < 2 && messageVisible) {
+      if (messageIndex < 2 && !loading && !allAboutVisible) {
+        if (messageIndex < 1 && messageVisible) {
           setMessageVisible((visible) => !visible)
+        } else if (messageIndex === 1) {
+          setAllAboutVisible((allAboutVisible) => (allAboutVisible = true))
         } else {
           setMessageIndex((prevIndex) => prevIndex + 1)
           setMessageVisible((visible) => !visible)
@@ -79,7 +104,7 @@ const HeroFramer = ({ loading }) => {
     }, 2000)
 
     return () => clearTimeout(messageTimer)
-  }, [messageIndex, loading, messageVisible])
+  }, [messageIndex, loading, messageVisible, allAboutVisible])
 
   useEffect(() => {
     if (iLiveIndex === 3 && !arrowVisible) {
@@ -108,6 +133,13 @@ const HeroFramer = ({ loading }) => {
               >
                 {messages[messageIndex]}
               </p>
+              <p
+                className={`hidden-up ${
+                  allAboutVisible ? 'visible-greeting' : ''
+                }`}
+              >
+                And I'm all about:
+              </p>
 
               <p
                 id="i-live-div"
@@ -125,7 +157,7 @@ const HeroFramer = ({ loading }) => {
                 backgroundImage: `url(${layer1})`,
                 zIndex: '9',
                 y: translateY1,
-                top: '88vh',
+                top: '70vh',
               }}
             ></motion.div>
             <motion.div
@@ -135,11 +167,21 @@ const HeroFramer = ({ loading }) => {
                 backgroundImage: `url(${layer2})`,
                 zIndex: '8',
                 y: translateY2,
-                top: '35vh',
+                top: '25vh',
+              }}
+            ></motion.div>
+            <motion.div
+              id="layer2"
+              className="parallax-layer"
+              style={{
+                zIndex: '10',
+                y: translateY2,
+                top: '25vh',
               }}
             >
-              <div id="arrows-container" onClick={() => changePage('#page-2')}>
+              <div id="arrows-container">
                 <img
+                  onClick={() => changePage('#page-2')}
                   src={downArrow}
                   id="down-arrow"
                   alt="Scroll Down"
@@ -156,7 +198,7 @@ const HeroFramer = ({ loading }) => {
                 backgroundColor: '#001829',
                 zIndex: '7',
                 y: translateY2,
-                top: '150vh',
+                top: '96vh',
               }}
             ></motion.div>
             <motion.div
@@ -166,7 +208,7 @@ const HeroFramer = ({ loading }) => {
                 backgroundImage: `url(${layer3})`,
                 zIndex: '7',
                 y: translateY3,
-                top: '15vh',
+                top: '5vh',
               }}
             ></motion.div>
             <motion.div
@@ -176,7 +218,7 @@ const HeroFramer = ({ loading }) => {
                 backgroundImage: `url(${layer4})`,
                 zIndex: '6',
                 y: translateY4,
-                top: '13vh',
+                top: '7vh',
               }}
             ></motion.div>
             <motion.div
@@ -186,13 +228,11 @@ const HeroFramer = ({ loading }) => {
                 backgroundImage: `url(${layer5})`,
                 zIndex: '5',
                 y: translateY5,
-                top: '-6vh',
+                top: '-10vh',
               }}
             ></motion.div>
           </div>
         </section>
-
-        <div id="spacer"></div>
 
         <section className="background-db" id="page-2">
           <div id="parallax-page-2" className="fs df-center">
@@ -225,11 +265,7 @@ const HeroFramer = ({ loading }) => {
                 />
                 <FaDocker
                   id="docker-icon"
-                  className={`${
-                    sampleIndex === 1 || sampleIndex === 3
-                      ? 'color-highlight'
-                      : ''
-                  }`}
+                  className={`${sampleIndex === 1 ? 'color-highlight' : ''}`}
                 />
                 <SiMysql
                   id="sql-icon"
@@ -241,7 +277,11 @@ const HeroFramer = ({ loading }) => {
                 />
                 <DiNodejs
                   id="nodejs-icon"
-                  className={`${sampleIndex === 1 ? 'color-highlight' : ''}`}
+                  className={`${
+                    sampleIndex === 1 || sampleIndex === 2
+                      ? 'color-highlight'
+                      : ''
+                  }`}
                 />
                 <SiMongodb
                   id="mongodb-icon"
@@ -251,11 +291,13 @@ const HeroFramer = ({ loading }) => {
             </AnimatedInView>
 
             <div id="skills-container">
-              <div id="button-left">
-                <a onClick={() => changeProject('-')}>
-                  <FaRegCircleLeft />
-                </a>
-              </div>
+              <AnimatedInView>
+                <div id="button-left">
+                  <a onClick={() => changeProject('-')}>
+                    <FaRegCircleLeft />
+                  </a>
+                </div>
+              </AnimatedInView>
               <AnimatedInView>
                 <div id="description-youtube-container">
                   <div
@@ -266,54 +308,131 @@ const HeroFramer = ({ loading }) => {
                     {' '}
                   </div>
                   <div id="description-box">
-                    <div>{description[sampleIndex - 1]}</div>
-                    <div></div>
+                    <div
+                      id="description"
+                      dangerouslySetInnerHTML={{
+                        __html: description[sampleIndex - 1],
+                      }}
+                    ></div>
+                    <div id="links">
+                      <a
+                        href={links[sampleIndex - 1]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Source Code
+                      </a>
+                    </div>
                   </div>
-                  <div
-                    id="youtube-box"
-                    className={`${sampleIndex === 1 ? '' : 'hide'}`}
-                  >
+
+                  <div id="youtube-box">
                     <iframe
                       width="100%"
                       height="100%"
-                      src="https://www.youtube.com/embed/TjH1Y-OLKrs?si=yr8ZPG8OaXsjnu-x"
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      src={youtubeLinks[sampleIndex - 1]}
+                      title=" "
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; "
                       allowFullScreen
+                      color="blue"
+                      rel="0"
+                      style={{ borderColor: '#3fc2ff' }}
                     ></iframe>
                   </div>
-                  <div
-                    id="youtube-box"
-                    className={`${sampleIndex === 2 ? '' : 'hide'}`}
-                  >
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://www.youtube.com/embed/BwaLCo_DX9U?si=9WeprpwK9CRsAdV7"
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <div
-                    id="youtube-box"
-                    className={`${sampleIndex === 3 ? '' : 'hide'}`}
-                  ></div>
                 </div>
               </AnimatedInView>
-              <div id="button-right">
-                <a onClick={() => changeProject('+')}>
-                  <FaRegCircleRight />
-                </a>
-              </div>
+              <AnimatedInView>
+                <div id="button-right">
+                  <a onClick={() => changeProject('+')}>
+                    <FaRegCircleRight />
+                  </a>
+                </div>
+              </AnimatedInView>
             </div>
+            <motion.div
+              id="layer6"
+              className="parallax-layer"
+              style={{
+                backgroundImage: `url(${layer6})`,
+                zIndex: -1,
+                y: translateY1,
+                top: '88vh',
+                position: 'absolute',
+              }}
+            ></motion.div>
+          </div>
+          <div
+            id="arrows-container2"
+            className="df-center"
+            onClick={() => changePage('#page-3')}
+          >
+            <img
+              src={downArrow}
+              id="down-arrow2"
+              alt="Scroll Down"
+              className={`${arrowVisible ? 'visible-greeting' : 'hidden-up'}`}
+            ></img>
+          </div>
+        </section>
+        <div id="spacer2"></div>
+
+        <section id="page-3">
+          <AnimatedInViewLeft>
+            <div id="about-me-left">
+              <div id="about-about">About</div>
+              <AnimatedInViewUp>
+                <div className="about-me-text-box-left">
+                  <p className="about-me-inner-text">
+                    Efficiency matters. <br /> Which is why I've spent so much
+                    time both in the real world, as well as in my own mind,
+                    searching for ways to improve my learning rate. <br />
+                    To gain understanding on how I function and how I absorb,
+                    process, and integrate new information. <br />
+                  </p>
+                </div>
+              </AnimatedInViewUp>
+              <AnimatedInViewUp>
+                <div className="about-me-subtitle-left">Embracing Change</div>
+              </AnimatedInViewUp>
+              <AnimatedInViewUp>
+                <div className="about-me-text-box-left">
+                  <p className="about-me-inner-text">
+                    But let's not forget that at the end of the day, everything
+                    comes back to PEOPLE. <br />
+                    Shown in my previous work history, I love working with both
+                    systems, as well as people, to understand their perspectives
+                    and connect with them, so that we may all benefit.
+                  </p>
+                </div>
+              </AnimatedInViewUp>
+            </div>
+          </AnimatedInViewLeft>
+          <div id="about-me-right">
+            <AnimatedInViewRight>
+              <div id="about-me-me">Me</div>
+            </AnimatedInViewRight>
+            <AnimatedInViewRight>
+              <div className="about-me-subtitle-right">Learning to Learn</div>
+            </AnimatedInViewRight>
+            <AnimatedInViewRight>
+              <div className="about-me-text-box-right">
+                <p className="about-me-inner-text">
+                  In a landscape as rapidly developing as the world of
+                  computers, it's adapt or become obsolete. <br />
+                  Luckily, I wholeheartedly embrace change in all aspects of my
+                  life. <br />
+                  After all, what is more exciting and captivating than the new
+                  and unknown?
+                </p>
+              </div>
+            </AnimatedInViewRight>
+            <AnimatedInViewRight>
+              <div className="about-me-subtitle-right">Systems & People</div>
+            </AnimatedInViewRight>
           </div>
         </section>
 
-        <section>
-          <AnimatedInView>
-            <div id="testing">testingggggg</div>
-          </AnimatedInView>
+        <section id="page-4" className="fs df-center">
+          <div></div>
         </section>
       </div>
     </div>

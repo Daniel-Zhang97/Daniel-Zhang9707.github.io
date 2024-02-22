@@ -3,10 +3,8 @@ import Matrix from './components/unused/Matrix'
 import LoadingScreen from './components/LoadingScreen.jsx'
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar.jsx'
-// import Hero from './components/Hero.jsx'
-// import './pages/Main.css'
 import HeroFramer from './components/HeroFramer.jsx'
-import './pages/main2.css'
+import './pages/main.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -19,12 +17,19 @@ function App() {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    if (loading) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+  }, [loading])
+
   return (
     <div>
       <Navbar />
-      {/* <Hero loading={loading} /> */}
       <HeroFramer loading={loading} />
-      {/* <LoadingScreen loading={loading} /> */}
+      <LoadingScreen loading={loading} />
     </div>
   )
 }
