@@ -27,7 +27,7 @@ const HeroFramer = ({ loading }) => {
     I added my own touches with some details like spacing and animations. It is after all, the little touches that make a <del>house</del> page feel like a home.`,
 
     `<div class='description-title'>Selma Revenue Widget</div> 
-      As part of my internship at Selma, I was tasked with creating a revenue widget for their platform. \n
+      As part of my internship at Selma, I was tasked with creating a full-stack revenue widget for their platform. \n
       I had no previous experience with PHP nor Symfony/Composer and was only given the instruction of 'Make a revenue widget'. \n
       So, with full creative freedom and a new language to learn, of course, I loved the challenge. \n
       (integrated with a MySQL relational DB backend)`,
