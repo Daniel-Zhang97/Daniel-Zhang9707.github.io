@@ -6,7 +6,7 @@ import layer1 from '../images/layer1.png'
 import layer5 from '../images/layer5.png'
 import layer6 from '../images/layer6.png'
 import downArrow from '../images/down_arrow.svg'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { RiJavascriptFill } from 'react-icons/ri'
 import { FaReact, FaDocker, FaPhp, FaSymfony } from 'react-icons/fa'
 import { SiMysql, SiMongodb } from 'react-icons/si'
@@ -355,7 +355,7 @@ const HeroFramer = ({ loading }) => {
                 backgroundImage: `url(${layer6})`,
                 zIndex: -1,
                 y: translateY1,
-                top: '88vh',
+                top: '50vh',
                 position: 'absolute',
               }}
             ></motion.div>
@@ -432,7 +432,10 @@ const HeroFramer = ({ loading }) => {
         </section>
 
         <section id="page-4" className="fs df-center">
-          <div></div>
+          <div id="page-4-text">
+            Let's get started.
+            <br /> Shall we?
+          </div>
         </section>
       </div>
     </div>
