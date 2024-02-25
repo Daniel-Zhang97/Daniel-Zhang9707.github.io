@@ -162,15 +162,30 @@ z-index: 30;
 #navbar {
   z-index: 99;
   position: fixed;
-  max-height: 100px;
+  max-height: 150px;
   max-width: 2000px;
+  width: 100vw;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #logo {
   max-height: 100px;
   margin-top: 20px;
   margin-left: 40px;
+}
+
+#navbar-right {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-link-icon {
+  font-size: 50px;
+  margin: 20px;
+  color: white;
 }
 
 /* LoadingScreen */

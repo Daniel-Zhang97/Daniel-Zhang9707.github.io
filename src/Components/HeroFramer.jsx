@@ -31,12 +31,23 @@ const HeroFramer = ({ loading }) => {
       I had no previous experience with PHP nor Symfony/Composer and was only given the instruction of 'Make a revenue widget'. \n
       So, with full creative freedom and a new language to learn, of course, I loved the challenge. \n
       (integrated with a MySQL relational DB backend)`,
+
+    `<div class='description-title'>My Portfolio Page</div>
+        Standard CVs are soooo 2018, having an online hub page is all the rage these days. \n
+        So of course, I had to jump in, if only to show a bit more of my own brand of design and feel. \n
+        The main goal of the page was to provide a more consumable, aesthetically pleasing way to show a CV. And I hope you enjoy it :)
+      `,
   ]
 
-  const links = ['https://github.com/Daniel-Zhang97/M5MD']
+  const links = [
+    'https://github.com/Daniel-Zhang97/M5MD',
+    'https://github.com/Daniel-Zhang97/Selma_Widgets_Frontend',
+    'https://github.com/Daniel-Zhang97/Portfolio',
+  ]
   const youtubeLinks = [
     'https://www.youtube.com/embed/TjH1Y-OLKrs?si=yr8ZPG8OaXsjnu-x',
     'https://www.youtube.com/embed/BwaLCo_DX9U?si=9WeprpwK9CRsAdV7',
+    'https://www.youtube.com/embed/TTB2__ga68c?si=Ho3uVWVTGqxZLCFA',
   ]
 
   const projectCount = 3
@@ -432,10 +443,12 @@ const HeroFramer = ({ loading }) => {
         </section>
 
         <section id="page-4" className="fs df-center">
-          <div id="page-4-text">
-            Let's get started.
-            <br /> Shall we?
-          </div>
+          <AnimatedInView>
+            <div id="page-4-text">
+              Let's get started.
+              <br /> Shall we?
+            </div>
+          </AnimatedInView>
         </section>
       </div>
     </div>
