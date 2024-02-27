@@ -446,7 +446,7 @@ const HeroFramer = ({ loading }) => {
           <AnimatedInView>
             <div id="page-4-text">
               Let's get started.
-              <br /> Shall we?
+              <br /> Hope to see you soon!
             </div>
           </AnimatedInView>
         </section>
