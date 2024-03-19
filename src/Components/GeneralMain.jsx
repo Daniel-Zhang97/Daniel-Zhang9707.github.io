@@ -17,15 +17,10 @@ import AnimatedInViewLeft from './AnimatedInViewLeft'
 import AnimatedInViewUp from './AnimatedInViewUp'
 import AnimatedInViewRight from './AnimatedInViewRight'
 
-const HeroFramer = ({ loading }) => {
+const GeneralMain = ({ loading }) => {
   const messages = ['Hey!', "I'm Dan"]
   const iLive = ['Challenges', 'Experiences', 'Growth', 'Life']
   const description = [
-    `<div class='description-title'>Metro Re-imagined</div>
-    This was my final project for my level 5 certification, a revamp of the Metro website. \n
-    I worked together with the UX team who provided the design and overall desired feeling for the website. \n
-    I added my own touches with some details like spacing and animations. It is after all, the little touches that make a <del>house</del> page feel like a home.`,
-
     `<div class='description-title'>Selma Revenue Widget</div> 
       As part of my internship at Selma, I was tasked with creating a full-stack revenue widget for their platform. \n
       I had no previous experience with PHP nor Symfony/Composer and was only given the instruction of 'Make a revenue widget'. \n
@@ -108,11 +103,11 @@ const HeroFramer = ({ loading }) => {
         setILiveVisible(true)
         const iLiveTimer = setInterval(() => {
           setIliveIndex((prevIndex) => (prevIndex < 3 ? prevIndex + 1 : 0))
-        }, 1200)
+        }, 1000)
 
         return () => clearInterval(iLiveTimer)
       }
-    }, 1200)
+    }, 1000)
 
     return () => clearTimeout(messageTimer)
   }, [messageIndex, loading, messageVisible, allAboutVisible])
@@ -249,7 +244,7 @@ const HeroFramer = ({ loading }) => {
           <div id="parallax-page-2" className="fs df-center">
             <AnimatedInView>
               <div id="skills-title" className="df-center">
-                SKILLS & STACK
+                SKILLS & EXPERIENCE
               </div>
             </AnimatedInView>
             <AnimatedInView>
@@ -336,7 +331,10 @@ const HeroFramer = ({ loading }) => {
                     </div>
                   </div>
 
-                  <div id="youtube-box">
+                  <div
+                    id="youtube-box"
+                    className={sampleIndex !== 0 ? 'invisible' : ''}
+                  >
                     <iframe
                       width="100%"
                       height="100%"
@@ -455,4 +453,4 @@ const HeroFramer = ({ loading }) => {
   )
 }
 
-export default HeroFramer
+export default GeneralMain

@@ -384,7 +384,7 @@ z-index: 30;
 #button-left, #button-right {
   width: 5vw;
   display: flex;
-  a { font-size: 50px; margin: auto; color: #332a5a; 
+  a { font-size: 50px; margin: auto; color: #297ea6; 
     transition: all 0.3s ease-in-out;
   :hover {
     cursor: pointer;
