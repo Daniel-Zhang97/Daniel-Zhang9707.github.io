@@ -1,14 +1,20 @@
-// eslint-disable-next-line
+import {
+  createHashRouter,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  ScrollRestoration,
+} from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import Matrix from './components/unused/Matrix'
 import LoadingScreen from './components/LoadingScreen.jsx'
-import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar.jsx'
 import HeroFramer from './components/HeroFramer.jsx'
 import './pages/main.css'
-import { Routes, Route } from 'react-router-dom'
 import GeneralMain from './components/GeneralMain.jsx'
 
-function App() {
+const App = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -27,40 +33,34 @@ function App() {
     }
   }, [loading])
 
-  // return (
-  //   <div>
-  //     <Routes>
-  //       <Route
-  //         path="/Portfolio/"
-  //         element={
-  //           <>
-  //             <Navbar />
-  //             <HeroFramer loading={loading} />
-  //             <LoadingScreen loading={loading} />
-  //           </>
-  //         }
-  //       ></Route>
-  //       <Route
-  //         path="/Portfolio/general"
-  //         element={
-  //           <>
-  //             <Navbar />
-  //             <GeneralMain />
-  //             <LoadingScreen loading={loading} />
-  //           </>
-  //         }
-  //       ></Route>
-  //     </Routes>
-  //   </div>
-  // )
-
-  return (
-    <div>
-      <Navbar />
-      <HeroFramer loading={loading} />
-      <LoadingScreen loading={loading} />
-    </div>
+  const router = createHashRouter(
+    createRoutesFromElements(
+      <Route
+        path="/"
+        element={
+          <>
+            <Navbar />
+            <HeroFramer loading={loading} />
+            <ScrollRestoration />
+            <LoadingScreen loading={loading} />
+          </>
+        }
+      >
+        <Route
+          path="general"
+          element={
+            <>
+              <Navbar />
+              <GeneralMain loading={loading} />
+              <ScrollRestoration />
+            </>
+          }
+        />
+      </Route>
+    )
   )
+
+  return <RouterProvider router={router}></RouterProvider>
 }
 
 export default App
